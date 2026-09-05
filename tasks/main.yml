@@ -1,0 +1,13 @@
+---
+
+- name: Set OS specific variables
+  ansible.builtin.include_tasks:
+    file: vars.yml
+
+- name: Set OS specific variables
+  ansible.builtin.include_tasks:
+    file: install.yml
+
+- name: Set grub password
+  ansible.builtin.include_tasks:
+    file: grub-password.yml

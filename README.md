@@ -57,6 +57,25 @@ Note:
 # grub_salt: abcd1234
 </pre></code>
 
+### defaults/family-Debian.yml
+<pre><code>
+grub_packages:
+  - grub-common
+  - grub2-common
+  - python3-pexpect
+
+grub_password_tool: grub-mkpasswd-pbkdf2
+</pre></code>
+
+### defaults/family-RedHat.yml
+<pre><code>
+grub_packages:
+  - grub2-tools
+  - python3-pexpect
+
+grub_password_tool: grub2-mkpasswd-pbkdf2
+</pre></code>
+
 
 
 
@@ -66,6 +85,11 @@ Note:
 - name: sample playbook for role 'grub'
   hosts: all
   become: 'yes'
+  vars:
+    molecule_driver: '{{ lookup(''env'', ''MOLECULE_DRIVER_NAME'') }}'
+    grub_user: boot
+    grub_password: boot
+    grub_salt: abcd1234
   tasks:
     - name: Include role 'grub'
       ansible.builtin.include_role:

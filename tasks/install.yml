@@ -1,0 +1,6 @@
+---
+
+- name: Install grub packages
+  ansible.builtin.package:
+    name: "{{ grub_packages }}"
+    state: present
