@@ -485,6 +485,16 @@ jobs:
             python: "3.12"
             hetznercloud: False
 
+          - name: ubuntu2004
+            runs_on: ubuntu-22.04
+            distro: ubuntu2004
+            playbook: converge.yml
+            venv: "ansiblecore219"
+            ansible: "ansible-core>2.19,<2.20"
+            ansible_lint: "ansible-lint"
+            python: "3.12"
+            hetznercloud: False
+
           - name: ubuntu2204
             runs_on: ubuntu-22.04
             distro: ubuntu2204

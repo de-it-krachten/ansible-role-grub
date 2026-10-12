@@ -20,7 +20,6 @@
 - name: rockylinux9
   ci: true
   box: cloud-image/rocky-9
-  provider_raw_config_args: ["customize ['modifyvm', :id, '--firmware', 'efi64']"]
 - name: rockylinux10
   ci: true
   box: cloud-image/rocky-10
@@ -66,7 +65,7 @@
   ci: false
   box: cloud-image/ubuntu-18.04
 - name: ubuntu2004
-  ci: false
+  ci: true
   box: cloud-image/ubuntu-20.04
 - name: ubuntu2204
   ci: true
