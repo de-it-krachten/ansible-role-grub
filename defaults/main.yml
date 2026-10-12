@@ -1,0 +1,10 @@
+---
+
+# Grub user
+# grub_user: boot
+
+# Grub password
+# grub_password: boot
+
+# Grub password salt
+# grub_salt: abcd1234

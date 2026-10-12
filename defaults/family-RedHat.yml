@@ -1,0 +1,8 @@
+---
+
+grub_packages:
+  - grub2-tools
+  - python3-pexpect
+
+grub_password_tool: grub2-mkpasswd-pbkdf2
+
