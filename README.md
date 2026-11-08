@@ -71,6 +71,7 @@ grub_password_tool: grub-mkpasswd-pbkdf2
 <pre><code>
 grub_packages:
   - grub2-tools
+  - grub2-tools-minimal
   - python3-pexpect
 
 grub_password_tool: grub2-mkpasswd-pbkdf2
