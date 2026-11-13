@@ -1,0 +1,26 @@
+---
+
+# Generic
+generic:
+  role: ansible-role-grub
+  role_short: grub
+  role_description: |
+    Configures grub password
+  collections: []
+
+# Supported platforms
+platforms:
+  ubuntu2004:
+    supported: true
+    ci: true
+
+# Molecule
+molecule:
+  requirements:
+    roles_extra: []
+  converge:
+    vars:
+      grub_user: boot
+      grub_password: boot
+      grub_salt: abcd1234
+

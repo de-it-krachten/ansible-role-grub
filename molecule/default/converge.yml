@@ -1,0 +1,14 @@
+---
+
+- name: Converge
+  hosts: all
+  become: "yes"
+  vars:
+    molecule_driver: "{{ lookup('env', 'MOLECULE_DRIVER_NAME') }}"
+    grub_user: boot
+    grub_password: boot
+    grub_salt: abcd1234
+  tasks:
+    - name: Include role 'ansible-role-grub'
+      ansible.builtin.include_role:
+        name: ansible-role-grub

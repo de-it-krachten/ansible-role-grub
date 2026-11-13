@@ -1,0 +1,32 @@
+---
+
+- name: Install RedHat family
+  when: ansible_facts.os_family == 'RedHat'
+  block:
+
+    - name: Gather package facts
+      ansible.builtin.package_facts:
+        manager: auto
+
+    - name: Swap grub2-tools-minimal for grub2-tools
+      ansible.builtin.command: dnf -y swap grub2-tools-minimal grub2-tools
+      become: true
+      changed_when: true
+      when:
+        - "'grub2-tools-minimal' in ansible_facts.packages"
+        - "'grub2-tools' not in ansible_facts.packages"
+
+    - name: Install required packages
+      ansible.builtin.dnf:
+        name: "{{ grub_packages }}"
+        state: present
+      become: true
+
+- name: Install Debian family
+  when: ansible_facts.os_family == 'Debian'
+  block:
+
+    - name: Install Debian family
+      ansible.builtin.apt:
+        name: "{{ grub_packages }}"
+        state: present
